@@ -1,14 +1,14 @@
 {
   "name": "core",
-  "version": "6.6.2-dev",
-  "kurentoVersion": "6.6.2-dev",
+  "version": "6.7.0",
+  "kurentoVersion": "6.7.0",
   "imports": [],
   "code": {
     "kmd": {
       "java": {
         "mavenGroupId": "org.kurento",
         "mavenArtifactId": "kms-api-core",
-        "mavenVersion": "6.6.2-SNAPSHOT"
+        "mavenVersion": "6.7.0"
       }
     },
     "api": {
@@ -16,13 +16,13 @@
         "packageName": "org.kurento.client",
         "mavenGroupId": "org.kurento",
         "mavenArtifactId": "kurento-client",
-        "mavenVersion": "6.6.2-SNAPSHOT"
+        "mavenVersion": "6.7.0"
       },
       "js": {
         "nodeName": "kurento-client-core",
         "npmDescription": "Base classes for kurento media server api",
         "npmGit": "Kurento/kurento-client-core-js",
-        "npmVersion": "Kurento/kurento-client-core-js"
+        "npmVersion": "6.7.0"
       }
     },
     "implementation": {
@@ -596,7 +596,7 @@
             }
           ],
           "name": "disconnect",
-          "doc": "Disconnectes two media elements. This will release the source pads of the source media element, and the sink pads of the sink media element."
+          "doc": "Disconnects two media elements. This will release the source pads of the source media element, and the sink pads of the sink media element."
         },
         {
           "params": [
@@ -646,6 +646,17 @@
           ],
           "name": "setOutputBitrate",
           "doc": "@deprecated\nAllows change the target bitrate for the media output, if the media is encoded using VP8 or H264. This method only works if it is called before the media starts to flow."
+        },
+        {
+          "params": [
+            {
+              "name": "interval",
+              "doc": "Seconds between each keyframe. If left to zero, won't force.",
+              "type": "int"
+            }
+          ],
+          "name": "setKeyframeInterval",
+          "doc": "Sets the keyframe generation interval in seconds. The generation is a gstreamer force_key_unit event, thus not guaranteed to be effective"
         },
         {
           "params": [
